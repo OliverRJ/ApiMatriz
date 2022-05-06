@@ -1,4 +1,4 @@
-package com.servicio.RotarMatriz.Models;
+package com.servicio.RotarMatriz.models;
 
 public class Usuario {
     private String nombre;
