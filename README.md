@@ -43,6 +43,9 @@ Para el api se creó dos formas de enviar los paramámetros al servicio, en la p
   ]
 }
 ```
+3. Verificar el servicio
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/prueba1.png)
+
 - Segunda Forma
 1. Llamar al método post: http://localhost:8080/operaciones/rotarmatrizjson
 2. Ingresar la matriz de datos:
@@ -55,6 +58,9 @@ Para el api se creó dos formas de enviar los paramámetros al servicio, en la p
     ]
 }
 ```
+3. Verificar el servicio
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/prueba2.png)
+
 - Verificando mensaje en caso de error
 ![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/error.png)
 
