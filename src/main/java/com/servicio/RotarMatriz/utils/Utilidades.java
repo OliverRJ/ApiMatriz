@@ -3,7 +3,7 @@ package com.servicio.RotarMatriz.utils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Utilities {
+public class Utilidades {
 
     public String[][] GenerarMatrizAntihorario(String[][] matrizOriginal){
 

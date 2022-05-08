@@ -1,6 +1,6 @@
 package com.servicio.RotarMatriz.controllers;
 
-import com.servicio.RotarMatriz.utils.Utilities;
+import com.servicio.RotarMatriz.utils.Utilidades;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,7 +15,7 @@ import java.util.Map;
 public class OperacionController {
 
     @Autowired
-    private Utilities utilities;
+    private Utilidades utilidades;
 
 
     @PostMapping(value = "/rotarmatriz", consumes = { MediaType.APPLICATION_JSON_VALUE },
@@ -23,7 +23,7 @@ public class OperacionController {
     public ResponseEntity<?> PostRotarMatrizAntihorario(@RequestBody  String[][] matriz){
         Map<String,Object> response = new HashMap<>();
         try{
-            String[][] nuevaMatriz = utilities.GenerarMatrizAntihorario(matriz);
+            String[][] nuevaMatriz = utilidades.GenerarMatrizAntihorario(matriz);
             response.put("Mensaje","Se rotó la matriz en sentido antihorario");
             response.put("Nueva matriz",nuevaMatriz);
         }
@@ -51,7 +51,7 @@ public class OperacionController {
 
         }
         try{
-            String[][] nuevaMatriz = utilities.GenerarMatrizAntihorario(matriz);
+            String[][] nuevaMatriz = utilidades.GenerarMatrizAntihorario(matriz);
             response.put("Mensaje","Se rotó la matriz en sentido antihorario");
             response.put("Nueva matriz",nuevaMatriz);
         }
