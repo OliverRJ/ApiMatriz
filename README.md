@@ -32,7 +32,7 @@ docker ps -a
 ## ¿Cómo probar el api rest?
 Para el api se creó dos formas de enviar los paramámetros al servicio, en la primera forma se envía la matriz directamente y en la segunda se envía con la estructura de clave y valor.
 
-- Primera Forma
+A. Primera Forma
 1. Llamar al método post:  http://localhost:8080/operaciones/rotarmatriz
 2. Ingresar la matriz de datos:
 ```json
@@ -44,9 +44,10 @@ Para el api se creó dos formas de enviar los paramámetros al servicio, en la p
 }
 ```
 3. Verificar el servicio
+
 ![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/prueba1.png)
 
-- Segunda Forma
+B. Segunda Forma
 1. Llamar al método post: http://localhost:8080/operaciones/rotarmatrizjson
 2. Ingresar la matriz de datos:
 ```json
@@ -59,9 +60,11 @@ Para el api se creó dos formas de enviar los paramámetros al servicio, en la p
 }
 ```
 3. Verificar el servicio
+
 ![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/prueba2.png)
 
-- Verificando mensaje en caso de error
+C. Verificando mensaje en caso de error
+
 ![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/error.png)
 
 ## Usar swagger para realizar pruebas:
@@ -70,4 +73,5 @@ Para realizar las pruebas del servicio se puede usar postman o thunder client, p
 1. ingresar a swagger: http://localhost:8080/swagger-ui/index.html#/
 2. Colocar los datos de ingreso de acuerdo a la forma a probar.
 3. Verificando el servicio:
+
 ![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/swagger.png)
