@@ -55,8 +55,13 @@ Para el api se creó dos formas de enviar los paramámetros al servicio, en la p
     ]
 }
 ```
+- Verificando mensaje en caso de error
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/error.png)
+
 ## Usar swagger para realizar pruebas:
 Para realizar las pruebas del servicio se puede usar postman o thunder client, pero se agregó swagger para que lo puedan probar directamente sin la necesidad de algún otro programa.
 
-1. ingresar a swagger: http://localhost:8080/swagger-ui/
+1. ingresar a swagger: http://localhost:8080/swagger-ui/index.html#/
 2. Colocar los datos de ingreso de acuerdo a la forma a probar.
+3. Verificando el servicio:
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/swagger.png)
