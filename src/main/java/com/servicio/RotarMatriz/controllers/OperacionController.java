@@ -1,5 +1,7 @@
 package com.servicio.RotarMatriz.controllers;
 
+import com.servicio.RotarMatriz.utils.Utilities;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,63 +11,58 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "operacion")
+@RequestMapping(value = "operaciones")
 public class OperacionController {
 
-    @PostMapping(value = "/RotarMatriz", consumes = { MediaType.APPLICATION_JSON_VALUE },
+    @Autowired
+    private Utilities utilities;
+
+
+    @PostMapping(value = "/rotarmatriz", consumes = { MediaType.APPLICATION_JSON_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE })
-    public  ResponseEntity<?>  PostRotarMatriz(@RequestBody  Map<String,Object> map){
+    public ResponseEntity<?> PostRotarMatrizAntihorario(@RequestBody  String[][] matriz){
+        Map<String,Object> response = new HashMap<>();
+        try{
+            String[][] nuevaMatriz = utilities.GenerarMatrizAntihorario(matriz);
+            response.put("Mensaje","Se rotó la matriz en sentido antihorario");
+            response.put("Nueva matriz",nuevaMatriz);
+        }
+        catch (Exception e){
+            response.put("Mensaje","Ocurrio un error");
+            response.put("Error",e.getMessage());
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/rotarmatrizjson", consumes = { MediaType.APPLICATION_JSON_VALUE },
+            produces = { MediaType.APPLICATION_JSON_VALUE })
+    public  ResponseEntity<?>  PostRotarMatrizAntihorarioJson(@RequestBody  Map<String,Object> matrizJson){
 
         Map<String,Object> response = new HashMap<>();
         String[][] matriz = null;
-        ArrayList<ArrayList<String>> mainList = new ArrayList<ArrayList<String>>();
-        for (Map.Entry<String, Object> pair : map.entrySet()) {
-            mainList = (ArrayList<ArrayList<String>>) pair.getValue();
-            matriz = mainList.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+        ArrayList<ArrayList<String>> listaArray;
+        // Obtiene el valor de la llave encontrada, para este caso la llave fue "array".
+        for (Map.Entry<String, Object> pair : matrizJson.entrySet()) {
+            // Almacena el valor del map en una lista de arrays
+            listaArray = (ArrayList<ArrayList<String>>) pair.getValue();
+            // Convierte la lista de array en una matriz bidimencional
+            matriz  = listaArray.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
 
         }
         try{
-            String[][] nuevaMatriz = this.GenerarMatrizAntihorario(matriz);
+            String[][] nuevaMatriz = utilities.GenerarMatrizAntihorario(matriz);
             response.put("Mensaje","Se rotó la matriz en sentido antihorario");
             response.put("Nueva matriz",nuevaMatriz);
         }
         catch (Exception e){
             response.put("Mensaje","Ocurrio un error");
             response.put("Error",e.getMessage());
-            return new ResponseEntity< Map<String,Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity< Map<String,Object>>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
 
     }
 
-    @PostMapping(value = "/RotarMatriz2", consumes = { MediaType.APPLICATION_JSON_VALUE },
-            produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<?> PostRotarMatriz(@RequestBody  String[][] matriz){
-        Map<String,Object> response = new HashMap<>();
-        try{
-            String[][] nuevaMatriz = this.GenerarMatrizAntihorario(matriz);
-            response.put("Mensaje","Se rotó la matriz en sentido antihorario");
-            response.put("Nueva matriz",nuevaMatriz);
-        }
-        catch (Exception e){
-            response.put("Mensaje","Ocurrio un error");
-            response.put("Error",e.getMessage());
-            return new ResponseEntity< Map<String,Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity< Map<String,Object>>(response, HttpStatus.OK);
-    }
-
-    public String[][] GenerarMatrizAntihorario(String[][] matrizOriginal){
-
-        int tamanioMatrizOriginal = matrizOriginal.length;
-        String[][] nuevaMatriz = new String[tamanioMatrizOriginal][tamanioMatrizOriginal];
-
-        for (int fila=0; fila<tamanioMatrizOriginal; fila++) {
-            for (int columna=0; columna<tamanioMatrizOriginal; columna++) {
-                nuevaMatriz[tamanioMatrizOriginal-1-columna][fila] = matrizOriginal[fila][columna];
-            }
-        }
-        return nuevaMatriz;
-    }
 
 }
