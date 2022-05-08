@@ -7,12 +7,16 @@ Servicio para rotar matriz en sentido antihorario.
 - Sprint boot version 2.6.7
 - Intellij IDEA Community Edition 2022.1 como IDE de desarrollo.
 - Visual Studio Code con Thunder Client para simular las peticiones al api
+- Swagger como herramienta de documentación y pruebas.
 
 ## Comandos para Docker:
+```docker
 docker build -t "api-matriz" .
 docker images
 docker run --name java-app -p 8081:8080 api-matriz:latest 
 docker ps -a   //para ver los contenedores
+```
+
 
 ## ¿Cómo probar el api rest?
 - Primera Forma
@@ -38,3 +42,6 @@ docker ps -a   //para ver los contenedores
     ]
 }
 ```
+## Usar swagger para realizar pruebas:
+1. ingresar a swagger: http://localhost:8080/swagger-ui/
+2. Colocar los datos de ingreso de acuerdo a la forma a probar.
