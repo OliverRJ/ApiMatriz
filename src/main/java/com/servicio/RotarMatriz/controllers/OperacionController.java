@@ -1,6 +1,11 @@
 package com.servicio.RotarMatriz.controllers;
 
 import com.servicio.RotarMatriz.utils.Utilidades;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jdk.jfr.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,7 +22,11 @@ public class OperacionController {
     @Autowired
     private Utilidades utilidades;
 
-
+    @Operation(summary = "Generar una matriz rotada en sentido antiorario")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Matriz rotada en sentido antihorario con éxito."),
+            @ApiResponse(responseCode = "500", description = "Ocurrio un error al rotar la Matriz.")
+    })
     @PostMapping(value = "/rotarmatriz", consumes = { MediaType.APPLICATION_JSON_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<?> PostRotarMatrizAntihorario(@RequestBody  String[][] matriz){
@@ -35,6 +44,11 @@ public class OperacionController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(summary = "Generar una matriz rotada en sentido antiorario pero con otra forma de enviar los parámetros")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Matriz rotada en sentido antihorario con éxito."),
+            @ApiResponse(responseCode = "500", description = "Ocurrio un error al rotar la Matriz.")
+    })
     @PostMapping(value = "/rotarmatrizjson", consumes = { MediaType.APPLICATION_JSON_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE })
     public  ResponseEntity<?>  PostRotarMatrizAntihorarioJson(@RequestBody  Map<String,Object> matrizJson){
