@@ -10,15 +10,28 @@ Servicio para rotar matriz en sentido antihorario.
 - Swagger como herramienta de documentación y pruebas.
 
 ## Comandos para Docker:
+1. Primero construimos la imagen con el nombre "api-matriz".
 ```docker
 docker build -t "api-matriz" .
-docker images
-docker run --name java-app -p 8081:8080 api-matriz:latest 
-docker ps -a   //para ver los contenedores
 ```
+2. Luego verificamos que se ha creado la imagen.
+```docker
+docker images
+```
+3. A continuación levantamos la imagen creada especificando el puerto.
+```docker
+docker run --name java-app -p 8081:8080 api-matriz:latest 
+```
+4. Comprobamos que el contenedor haya sido creado y esté activo.
+```docker
+docker ps -a  
+```
+5. Verificamos que la imagen esté funcionando.
 
 
 ## ¿Cómo probar el api rest?
+Para el api se creó dos formas de enviar los paramámetros al servicio, en la primera forma se envía la matriz directamente y en la segunda se envía con la estructura de clave y valor.
+
 - Primera Forma
 1. Llamar al método post:  http://localhost:8080/operaciones/rotarmatriz
 2. Ingresar la matriz de datos:
@@ -43,5 +56,7 @@ docker ps -a   //para ver los contenedores
 }
 ```
 ## Usar swagger para realizar pruebas:
+Para realizar las pruebas del servicio se puede usar postman o thunder client, pero se agregó swagger para que lo puedan probar directamente sin la necesidad de algún otro programa.
+
 1. ingresar a swagger: http://localhost:8080/swagger-ui/
 2. Colocar los datos de ingreso de acuerdo a la forma a probar.
