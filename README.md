@@ -1,6 +1,7 @@
 # ApiMatriz
-![image]({https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white})
 
+![GitHub Repo stars](https://img.shields.io/github/stars/OliverRJ/ApiMatriz?style=flat-square)
+![alt text](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 
 Servicio para rotar matriz en sentido antihorario.
 
