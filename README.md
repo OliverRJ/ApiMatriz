@@ -54,7 +54,7 @@ Se verificó el funcionamiento:
 Para el api se creó dos formas de enviar los paramámetros al servicio, en la primera forma se envía la matriz directamente y en la segunda se envía con la estructura de clave y valor.
 
 A. Primera Forma
-1. Llamar al método post:  http://localhost:8080/operaciones/rotarmatriz
+1. Llamar al método post:  http://localhost:8080/operaciones/rotarmatriz ó https://apimatriz.azurewebsites.net/operaciones/rotarmatriz
 2. Ingresar la matriz de datos:
 ```json
 {
@@ -69,7 +69,7 @@ A. Primera Forma
 ![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/prueba1.png)
 
 B. Segunda Forma
-1. Llamar al método post: http://localhost:8080/operaciones/rotarmatrizjson
+1. Llamar al método post: http://localhost:8080/operaciones/rotarmatrizjson ó https://apimatriz.azurewebsites.net/operaciones/rotarmatrizjson
 2. Ingresar la matriz de datos:
 ```json
 {
@@ -91,7 +91,7 @@ C. Verificando mensaje en caso de error
 ## Usar swagger para realizar pruebas:
 Para realizar las pruebas del servicio se puede usar postman o thunder client, pero se agregó swagger para que lo puedan probar directamente sin la necesidad de algún otro programa.
 
-1. ingresar a swagger: http://localhost:8080/swagger-ui/index.html#/
+1. ingresar a swagger: http://localhost:8080/swagger-ui/index.html#/ ó https://apimatriz.azurewebsites.net/swagger-ui/index.html#/
 2. Colocar los datos de ingreso de acuerdo a la forma a probar.
 3. Verificando el servicio:
 
