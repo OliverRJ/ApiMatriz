@@ -32,6 +32,23 @@ docker ps -a
 ```
 5. Verificamos que la imagen esté funcionando.
 
+## Imagen desplegada en Azure
+El servicio también se encuentra desplegado en azure, la url es: https://apimatriz.azurewebsites.net/
+
+Para la publicación se usaron los siguientes servicios:
+- Registros de contenedor
+
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/registro.png)
+
+- App Service
+
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/web.png)
+
+Se verificó el funcionamiento:
+![Image text](https://raw.githubusercontent.com/OliverRJ/imagenes/main/apimatriz/pruebaweb.png)
+
+
+
 
 ## ¿Cómo probar el api rest?
 Para el api se creó dos formas de enviar los paramámetros al servicio, en la primera forma se envía la matriz directamente y en la segunda se envía con la estructura de clave y valor.
